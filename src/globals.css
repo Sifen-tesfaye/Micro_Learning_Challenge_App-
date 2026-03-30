@@ -1,3 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-surface-dim: #060e20;
+  --color-surface-dark: #142449;
+  --color-surface-container-low: #081329;
+  --color-on-surface: #dee5ff;
+  --color-on-surface-variant: #9baad6;
+  --color-brand-indigo: #4f46e5;
+}
+
+@layer base {
+  body {
+    @apply bg-surface-dim text-on-surface font-sans;
+    font-family: "Inter", sans-serif;
+  }
+
+  a {
+    @apply text-brand-indigo hover:underline;
+  }
+
+  input {
+    @apply border rounded-md;
+  }
+
+  button {
+    @apply transition-colors active:scale-95;
+  }
+}
