@@ -1,4 +1,4 @@
-import "./Categories.css";
+// import styles from "./catagories.css";
 
 const categories = [
   { title: "UI/UX Design", modules: 24 },
@@ -28,7 +28,7 @@ export default function Categories() {
 
         <button className="new-btn">New Challenge</button>
       </aside>
-      
+
       <div className="main">
         <div className="topbar">
           <input type="text" placeholder="Search categories..." />
@@ -38,11 +38,11 @@ export default function Categories() {
         <div className="header">
           <h1>Explore Categories</h1>
           <p>
-            Master new dimensions of expertise through curated challenge pathways.
+            Master new dimensions of expertise through curated challenge
+            pathways.
           </p>
         </div>
 
-  
         <div className="grid">
           {categories.map((cat, i) => (
             <div key={i} className="card">
@@ -56,7 +56,7 @@ export default function Categories() {
             </div>
           ))}
         </div>
-        
+
         <div className="bottom-box">
           <h2>Can't find what you're looking for?</h2>
           <p>Suggest a custom pathway.</p>
@@ -67,11 +67,9 @@ export default function Categories() {
           </div>
         </div>
 
-     
         <footer className="footer">
           <p>© 2024 Luminescent Scholar</p>
         </footer>
-
       </div>
     </div>
   );
