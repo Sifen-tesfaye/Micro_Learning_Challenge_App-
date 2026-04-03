@@ -20,12 +20,7 @@ export default function Landing() {
       {/* Trust Signals / Stats */}
       <TrustSignalsSection />
       {/* Featured Challenge Card */}
-      <ChallengeCard
-        title={`Challenge of the Day"} description={"Join 4,200 scholars in today's deep-work simulation. Unlock the
-            "Flow State" badge and earn double XP.`}
-      >
-        Mastering The <br /> Art of Focus
-      </ChallengeCard>
+      <ChallengeCard />
       {/* Testimonials Section */}
       <Testimonial />
       {/* Footer */}

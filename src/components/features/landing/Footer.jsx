@@ -14,34 +14,28 @@ function Footer() {
           <div className="flex flex-wrap justify-center gap-8">
             <a
               href="#"
-              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-primary transition-colors"
+              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-tertiary transition-colors"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-primary transition-colors"
+              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-tertiary transition-colors"
             >
               Terms of Service
             </a>
             <a
               href="#"
-              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-primary transition-colors"
+              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-tertiary transition-colors"
             >
               Help Center
             </a>
-            <a
-              href="#"
-              className="text-on-surface-variant text-xs uppercase tracking-widest font-bold hover:text-primary transition-colors"
-            >
-              API
-            </a>
           </div>
           <div className="flex gap-4">
-            <button className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+            <button className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors">
               <span className="material-symbols-outlined text-xl">share</span>
             </button>
-            <button className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+            <button className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors">
               <span className="material-symbols-outlined text-xl">
                 alternate_email
               </span>
