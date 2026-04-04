@@ -1,21 +1,25 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Signup from "../pages/Signup.jsx";
 import Login from "../pages/Login";
+import ResetPassword from "../pages/ResetPassword";
 import { useAuth } from "../context/AuthContext";
 
-function App() {
+export default function App() {
   return (
-    <Routes>
-      {/* Login route */}
-      <Route path="/login" element={<Login />} />
+    <Router>
+      <Routes>
+        {/* Login route */}
+        <Route path="/login" element={<Login />} />
 
-      {/* Signup route */}
-      <Route path="/signup" element={<Signup />} />
+        {/* Signup route */}
+        <Route path="/signup" element={<Signup />} />
 
-      {/* Default redirect to login */}
-      <Route path="/" element={<Navigate to="/login" />} />
-    </Routes>
+        {/* Reset password route */}
+        <Route path="/reset-password" element={<ResetPassword />} />
+
+        {/* Default redirect to login */}
+        <Route path="/" element={<Navigate to="/login" />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
