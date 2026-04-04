@@ -1,32 +1,35 @@
-import challengeCover from "../../../assets/images/challenge_image.avif";
+import { Link } from "react-router-dom";
 
 export default function ChallengeCard({
+  eyebrow,
   title,
-  children,
-  description = 'Join 4,200 scholars in today\'s deep-work simulation. Unlock the "Flow State" badge and earn double XP.',
-  challengeImage = challengeCover,
+  description,
+  cta,
+  meta,
+  challengeImage,
 }) {
   return (
     <section className="py-24 px-6 overflow-hidden">
       <div className="max-w-[1440px] mx-auto bg-surface-container-high rounded-[2.5rem] relative overflow-hidden flex flex-col md:flex-row items-center">
         <div className="md:w-1/2 p-12 lg:p-20 z-10">
           <span className="text-tertiary font-bold text-sm tracking-widest uppercase mb-4 block">
-            Challenge of the Day
+            {eyebrow}
           </span>
           <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
-            Mastering The <br /> Art of Focus
-            {/* {children ||
-              "Unlock Your Potential: Today's Challenge Awaits Your Brilliance!"} */}
+            {title}
           </h2>
           <p className="text-on-surface-variant text-lg mb-8 max-w-md">
             {description}
           </p>
           <div className="flex items-center gap-4">
-            <button className="px-8 py-4 bg-secondary text-on-secondary font-bold rounded-2xl hover:brightness-110 transition-all cursor-pointer">
-              Start Now
-            </button>
+            <Link
+              className="px-8 py-4 bg-secondary text-on-secondary font-bold rounded-2xl hover:brightness-110 transition-all cursor-pointer"
+              to={cta.to}
+            >
+              {cta.label}
+            </Link>
             <span className="text-on-surface-variant text-sm font-medium">
-              10 Min Duration
+              {meta}
             </span>
           </div>
         </div>
@@ -42,9 +45,3 @@ export default function ChallengeCard({
     </section>
   );
 }
-<ChallengeCard
-  title={`Challenge of the Day"} description={"Join 4,200 scholars in today's deep-work simulation. Unlock the
-            "Flow State" badge and earn double XP.`}
->
-  Mastering The <br /> Art of Focus
-</ChallengeCard>;

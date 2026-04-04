@@ -62,7 +62,7 @@ export default function App() {
         </div>
       </nav>
       <main className="pt-28">
-        <div className="max-w-6xl mx-auto p-6">
+        <div className="w-full px-6">
           <Outlet />
           <div className="mt-10 text-center text-on-surface-variant">
             <p>Welcome to Luminescent Scholar. Use the navbar to navigate.</p>
