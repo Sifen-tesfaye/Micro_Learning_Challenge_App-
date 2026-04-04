@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { AuthContextResetPassword } from "../../context/AuthContextResetPassword";
+import { useAuth } from "../../context/AuthContext";  // unified context
 
 
 export default function ResetForm() {
-  const { resetPassword, status } = useContext(AuthContextResetPassword);
+ const { resetPassword, status } = useAuth();   // comes from unified AuthContext
   const [email, setEmail] = useState("");
 
   async function handleSubmit(e) {

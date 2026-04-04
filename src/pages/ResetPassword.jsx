@@ -1,11 +1,10 @@
 import LogoHeader from "../components/resetpassword/LogoHeader";
 import ResetForm from "../components/resetpassword/ResetForm";
 import Footer from "../components/resetpassword/Footer";
-import { AuthResetPasswordProvider } from "../context/AuthContextResetPassword";
 
 export default function ResetPassword() {
   return (
-    <AuthResetPasswordProvider>
+    
       <div className="min-h-screen flex flex-col justify-between bg-gradient-to-br from-surface-dim to-surface-container text-on-surface font-sans">
         
         {/* Header OUTSIDE the box */}
@@ -15,7 +14,7 @@ export default function ResetPassword() {
 
         {/* Reset Box */}
         <div className="flex-grow flex items-center justify-center">
-          <div className="w-full max-w-md p-8 rounded-lg shadow-2xl bg-surface-container flex flex-col items-center">
+         <div className="w-full max-w-md p-8 rounded-lg shadow-2xl bg-surface-bright flex flex-col items-center">
             <ResetForm />
           </div>
         </div>
@@ -30,6 +29,5 @@ export default function ResetPassword() {
 
         <Footer />
       </div>
-    </AuthResetPasswordProvider>
-  );
+     );
 }
