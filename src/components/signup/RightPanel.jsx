@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useAuthSignup } from "../../context/AuthContextSignup";
+import { useAuth } from "../../context/AuthContext";
 import { User, AtSign, Lock, Eye, EyeOff } from "lucide-react";
 
 export default function RightPanel() {
-  const { signup } = useAuthSignup(); // bring in signup from context
+  const { signUp } = useAuth(); // bring in signup from context
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +18,7 @@ export default function RightPanel() {
       return;
     }
     try {
-      await signup(fullName, email, password);
+      await signUp(fullName, email, password);
       console.log("Signup successful!");
       // optional: redirect to dashboard here
     } catch (err) {

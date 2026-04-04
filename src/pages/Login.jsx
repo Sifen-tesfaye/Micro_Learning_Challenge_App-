@@ -12,7 +12,7 @@ import { FaLock } from "react-icons/fa";    // lock icon
 
 
 export default function Login() {
-  const { signIn } = useAuth();
+ const { signIn } = useAuth();
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -57,6 +57,23 @@ export default function Login() {
               icon={<FaLock className="w-5 h-5" />}
             />
 
+       {/* Forgot Password + Remember Session row */}
+  <div className="flex items-center justify-between text-sm">
+    {/* Left side: Forgot Password */}
+    <a href="/reset-password" className="text-brand-indigo hover:underline">
+      Forgot Password?
+    </a>
+
+    {/* Right side: Remember Session */}
+    <label className="flex items-center gap-1 cursor-pointer">
+      <input
+        type="checkbox"
+        className="h-4 w-4 text-brand-indigo border-on-surface-variant rounded"
+      />
+      <span>Remember this session</span>
+    </label>
+  </div>
+
             <button
               type="submit"
               className="w-full bg-brand-indigo text-white py-2 rounded-md transition-colors hover:bg-indigo-700"
@@ -79,7 +96,7 @@ export default function Login() {
       {/* Sign-up link */}
       <div className="text-center text-sm mb-4">
         Don’t have an account?{" "}
-        <a href="/register" className="text-brand-indigo hover:underline">
+        <a href="/signup" className="text-brand-indigo hover:underline">
           Sign up for free
         </a>
       </div>
