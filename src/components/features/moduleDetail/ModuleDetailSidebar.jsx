@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { isDetailNavActive } from "../shared/detailNav";
 
 export default function ModuleDetailSidebar({ sidebar }) {
+  const { pathname } = useLocation();
+
   return (
     <aside
       className="z-10 h-screen w-64 fixed left-0 top-0 hidden lg:flex flex-col pt-20 border-r"
@@ -23,36 +26,33 @@ export default function ModuleDetailSidebar({ sidebar }) {
         </div>
 
         {sidebar.items.map((item) => (
-          <Link
+          <NavLink
             key={item.label}
-            className="flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200"
-            style={
-              item.active
-                ? {
-                    color: "#919bff",
-                    borderLeft: "2px solid #3cddc7",
-                    backgroundColor: "rgba(20, 36, 73, 0.3)",
-                  }
-                : { color: "#9baad6" }
+            className={() =>
+              `flex items-center gap-3 rounded-lg px-4 py-3 transition-all duration-200 ${
+                isDetailNavActive(pathname, item.to)
+                  ? "border-l-2 border-[#3cddc7] bg-[#142449]/60 text-[#919bff]"
+                  : "text-[#9baad6] hover:bg-[#142449]/40 hover:text-[#dee5ff]"
+              }`
             }
             to={item.to}
           >
             <span className="material-symbols-outlined">{item.icon}</span>
             <span className="font-medium text-sm">{item.label}</span>
-          </Link>
+          </NavLink>
         ))}
 
         <div className="mt-8">
-          <button
-            className="w-full py-3 px-4 rounded-xl font-bold text-sm shadow-[0_0_20px_rgba(145,155,255,0.2)] active:scale-95 transition-transform"
+          <Link
+            className="block w-full rounded-xl py-3 px-4 text-center font-bold text-sm shadow-[0_0_20px_rgba(145,155,255,0.2)] active:scale-95 transition-transform"
             style={{
               background: "linear-gradient(to right, #919bff, #818cf8)",
               color: "#000b83",
             }}
-            type="button"
+            to={sidebar.ctaTo || "/signup"}
           >
             {sidebar.ctaLabel}
-          </button>
+          </Link>
         </div>
       </div>
     </aside>

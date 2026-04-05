@@ -5,14 +5,8 @@ import InputField from "../components/login/InputField";
 import SocialButton from "../components/login/SocialButton";
 import { useAuth } from "../context/AuthContext";
 
-// react-icons imports
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
-import { MdEmail } from "react-icons/md";
-import { FaLock } from "react-icons/fa";
-
 // lucide-react for Eye toggle
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -58,7 +52,7 @@ export default function Login() {
           <form className="space-y-5" onSubmit={handleSubmit}>
             <InputField
               autoComplete="email"
-              icon={<MdEmail className="w-5 h-5" />}
+              icon={<Mail className="w-5 h-5" />}
               label="Email Address"
               placeholder="scholar@academy.edu"
               value={email}
@@ -69,7 +63,7 @@ export default function Login() {
             <div className="relative">
               <InputField
                 autoComplete="current-password"
-                icon={<FaLock className="w-5 h-5" />}
+                icon={<Lock className="w-5 h-5" />}
                 label="Password"
                 type={showPassword ? "text" : "password"}
                 placeholder="•••••••••"
@@ -117,8 +111,22 @@ export default function Login() {
           <div className="mt-6 text-center">
             <p className="text-sm mb-2">OR CONTINUE WITH</p>
             <div className="flex justify-center gap-4">
-              <SocialButton label="Google" icon={<FcGoogle className="w-5 h-5" />} />
-              <SocialButton label="GitHub" icon={<FaGithub className="w-5 h-5" />} />
+              <SocialButton
+                label="Google"
+                icon={
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#4285F4]">
+                    G
+                  </span>
+                }
+              />
+              <SocialButton
+                label="GitHub"
+                icon={
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10 text-[10px] font-bold text-white">
+                    GH
+                  </span>
+                }
+              />
             </div>
           </div>
         </div>
