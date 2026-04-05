@@ -81,7 +81,7 @@ export default function HeroSection({
           {/* Buttons */}
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
-              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-2xl shadow-lg shadow-secondary/20 hover:brightness-110 transition-all active:scale-95 cursor-pointer"
+              className="px-8 py-4 bg-gradient-to-r from-[#aeb6ff] via-[#8bf4e6] to-[#d7b0ff] text-[#041085] font-bold rounded-2xl shadow-[0_18px_45px_rgba(139,244,230,0.28)] hover:shadow-[0_22px_55px_rgba(174,182,255,0.38)] hover:brightness-110 transition-all active:scale-95 cursor-pointer"
               to={primaryCta.to}
             >
               {primaryCta.label}

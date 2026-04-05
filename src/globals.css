@@ -80,6 +80,7 @@
   --color-on-secondary-fixed: #004a41;
   --color-inverse-on-surface: #4d556b;
   --color-outline: #65759e;
+  --color-brand-indigo: #6366f1;
 
   --font-family-headline: "Inter";
   --font-family-body: "Inter";
@@ -245,5 +246,76 @@
       rgba(99, 102, 241, 0.15) 0%,
       rgba(6, 14, 32, 0) 70%
     );
+  }
+
+  .auth-page-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background:
+      radial-gradient(circle at top, rgba(129, 140, 248, 0.14), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(34, 207, 186, 0.12), transparent 30%),
+      linear-gradient(180deg, rgba(6, 14, 32, 1) 0%, rgba(8, 19, 41, 1) 100%);
+  }
+
+  .auth-frame {
+    display: flex;
+    min-height: min(760px, calc(100vh - 12rem));
+    border: 1px solid rgba(56, 71, 109, 0.26);
+    border-radius: 2rem;
+    background: rgba(12, 25, 52, 0.7);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(24px);
+  }
+
+  .auth-panel {
+    border-right: 1px solid rgba(56, 71, 109, 0.2);
+  }
+
+  .auth-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9baad6;
+  }
+
+  .auth-input-shell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgba(56, 71, 109, 0.35);
+    border-radius: 1rem;
+    background: rgba(6, 14, 32, 0.7);
+    padding: 0.85rem 1rem;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .auth-input-shell:focus-within {
+    border-color: rgba(129, 140, 248, 0.7);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+    background: rgba(12, 25, 52, 0.9);
+  }
+
+  .auth-input-icon {
+    flex-shrink: 0;
+    color: #9baad6;
+  }
+
+  .auth-input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #dee5ff;
+  }
+
+  .auth-input::placeholder {
+    color: rgba(155, 170, 214, 0.58);
   }
 }

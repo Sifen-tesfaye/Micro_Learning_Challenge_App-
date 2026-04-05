@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import ModuleDetailAside from "../components/feature/moduleDetail/ModuleDetailAside";
-import ModuleDetailContent from "../components/feature/moduleDetail/ModuleDetailContent";
-import ModuleDetailFooter from "../components/feature/moduleDetail/ModuleDetailFooter";
-import ModuleDetailHeader from "../components/feature/moduleDetail/ModuleDetailHeader";
-import ModuleDetailHero from "../components/feature/moduleDetail/ModuleDetailHero";
-import ModuleDetailQuiz from "../components/feature/moduleDetail/ModuleDetailQuiz";
-import ModuleDetailSidebar from "../components/feature/moduleDetail/ModuleDetailSidebar";
+import ModuleDetailAside from "../components/features/moduleDetail/ModuleDetailAside";
+import ModuleDetailContent from "../components/features/moduleDetail/ModuleDetailContent";
+import ModuleDetailFooter from "../components/features/moduleDetail/ModuleDetailFooter";
+import ModuleDetailHeader from "../components/features/moduleDetail/ModuleDetailHeader";
+import ModuleDetailHero from "../components/features/moduleDetail/ModuleDetailHero";
+import ModuleDetailQuiz from "../components/features/moduleDetail/ModuleDetailQuiz";
+import ModuleDetailSidebar from "../components/features/moduleDetail/ModuleDetailSidebar";
 import MobileSectionNav from "../components/features/landing/MobileSectionNav";
 import { landingPageData } from "../components/features/landing/landingData";
 import {
   completeModuleAndUpdateStreak,
   getStoredStreakCount,
-} from "../components/feature/moduleDetail/streakStorage";
+} from "../components/features/moduleDetail/streakStorage";
 import {
   fetchModuleDetailById,
   moduleDetailChrome,
-} from "../components/feature/moduleDetail/tempData";
+} from "../components/features/moduleDetail/tempData";
 
 export default function ModuleDetail() {
   const { moduleId } = useParams();
@@ -89,7 +89,8 @@ export default function ModuleDetail() {
             <section className="min-h-[60vh] flex flex-col items-center justify-center text-center gap-4">
               <h1 className="text-3xl font-bold">Module not found</h1>
               <p className="max-w-xl" style={{ color: "#9baad6" }}>
-                No module matched the id <span className="font-semibold">{moduleId}</span> in the
+                No module matched the id{" "}
+                <span className="font-semibold">{moduleId}</span> in the
                 temporary data source.
               </p>
               <Link
