@@ -47,7 +47,8 @@ export const modulesTempData = [
         },
         {
           title: "Type System",
-          description: "Rules that describe what kind of value a variable holds.",
+          description:
+            "Rules that describe what kind of value a variable holds.",
         },
       ],
       achievement: {
@@ -163,7 +164,8 @@ export const modulesTempData = [
         },
         {
           title: "Branching",
-          description: "Choosing between different code paths based on a condition.",
+          description:
+            "Choosing between different code paths based on a condition.",
         },
         {
           title: "Boolean Logic",
@@ -278,6 +280,7 @@ export const lessonsTempData = [
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 6,
   },
+
   {
     id: 102,
     title: "Primitive Data Types",
@@ -290,7 +293,8 @@ export const lessonsTempData = [
     module: 10,
     created_at: "2026-04-04T09:05:00Z",
     updated_at: "2026-04-04T09:05:00Z",
-    summary: "Recognize the basic value types you will use in first Python programs.",
+    summary:
+      "Recognize the basic value types you will use in first Python programs.",
     thumbnail:
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 7,
@@ -307,7 +311,8 @@ export const lessonsTempData = [
     module: 10,
     created_at: "2026-04-04T09:10:00Z",
     updated_at: "2026-04-04T09:10:00Z",
-    summary: "Use naming conventions that make your code feel self-explanatory.",
+    summary:
+      "Use naming conventions that make your code feel self-explanatory.",
     thumbnail:
       "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 5,
@@ -375,7 +380,8 @@ export const lessonsTempData = [
     module: 12,
     created_at: "2026-04-04T11:00:00Z",
     updated_at: "2026-04-04T11:00:00Z",
-    summary: "Start reading and writing expressions that evaluate to true or false.",
+    summary:
+      "Start reading and writing expressions that evaluate to true or false.",
     thumbnail:
       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 7,
@@ -409,7 +415,8 @@ export const lessonsTempData = [
     module: 12,
     created_at: "2026-04-04T11:18:00Z",
     updated_at: "2026-04-04T11:18:00Z",
-    summary: "Use boolean operators to handle more realistic branching scenarios.",
+    summary:
+      "Use boolean operators to handle more realistic branching scenarios.",
     thumbnail:
       "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 8,
@@ -477,7 +484,8 @@ export const lessonsTempData = [
     module: 20,
     created_at: "2026-04-04T13:02:00Z",
     updated_at: "2026-04-04T13:02:00Z",
-    summary: "Learn why consistent metadata makes list endpoints easier to consume.",
+    summary:
+      "Learn why consistent metadata makes list endpoints easier to consume.",
     thumbnail:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 9,
@@ -494,43 +502,13 @@ export const lessonsTempData = [
     module: 20,
     created_at: "2026-04-04T13:14:00Z",
     updated_at: "2026-04-04T13:14:00Z",
-    summary: "See how thoughtful response design removes friction for frontend implementation.",
+    summary:
+      "See how thoughtful response design removes friction for frontend implementation.",
     thumbnail:
       "https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=1200&q=80",
     estimated_minutes: 13,
   },
 ];
-
-export const moduleDetailChrome = {
-  brand: "Luminescent Scholar",
-  defaultStreakCount: 12,
-  profileImage:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBuLRe3g669dtSxFXyMzjkKfFf3tN5MCMrGl6BB4yYhYEGoPQ-h38ZWq0OjeA14Zh9Y7FkhCEPfbzYHeucoM96A53D0qK97ex3BRTKQQ11-fF1fOH6-_nYJ36dgOFBewCViF7842KyR3SdpNIvwn2tViWJVBlMb2E7Xw3j4Ro-DE-uNSAsIudn3qxp4qnu9G8J__WeHq5QLmjFnihPMba7Voif-iEjZbdr5DYapUOJD-31geipGJYbBS9GpM64Dhrt-5IA4RMxZA3E",
-  sidebar: {
-    title: "The Scholar",
-    subtitle: "Grand Master",
-    items: [
-      { label: "Dashboard", icon: "dashboard", to: "/dashboard" },
-      {
-        label: "Categories",
-        icon: "grid_view",
-        to: "/categories",
-        active: true,
-      },
-      { label: "Leaderboard", icon: "leaderboard", to: "/leaderboard" },
-      { label: "Challenges", icon: "emoji_events", to: "/dashboard" },
-    ],
-    ctaLabel: "New Challenge",
-  },
-  footer: {
-    copyright: "© 2026 Luminescent Scholar. Elevate your mind.",
-    links: [
-      { label: "Privacy Policy", to: "#" },
-      { label: "Terms of Service", to: "#" },
-      { label: "Help Center", to: "#" },
-    ],
-  },
-};
 
 function getLessonsByModuleId(moduleId) {
   return lessonsTempData
@@ -569,7 +547,9 @@ export function fetchCategoryList() {
 
 export function fetchModuleList({ categoryId } = {}) {
   const filteredModules = categoryId
-    ? modulesTempData.filter((module) => String(module.category) === String(categoryId))
+    ? modulesTempData.filter(
+        (module) => String(module.category) === String(categoryId),
+      )
     : modulesTempData;
 
   return Promise.resolve({
@@ -595,18 +575,23 @@ export function fetchLessonList({ moduleId } = {}) {
 
 export function fetchModuleDetailById(moduleId) {
   const matchedModule =
-    modulesTempData.find((module) => String(module.id) === String(moduleId)) ?? null;
+    modulesTempData.find((module) => String(module.id) === String(moduleId)) ??
+    null;
 
   if (!matchedModule) {
     return Promise.resolve(null);
   }
 
   const categoryData =
-    categoriesTempData.find((category) => category.id === matchedModule.category) ?? null;
+    categoriesTempData.find(
+      (category) => category.id === matchedModule.category,
+    ) ?? null;
   const categoryModules = modulesTempData
     .filter((module) => module.category === matchedModule.category)
     .sort((a, b) => a.id - b.id);
-  const currentIndex = categoryModules.findIndex((module) => module.id === matchedModule.id);
+  const currentIndex = categoryModules.findIndex(
+    (module) => module.id === matchedModule.id,
+  );
   const lessons = getLessonsByModuleId(matchedModule.id);
   const primaryLesson = lessons[0] ?? null;
 
@@ -620,9 +605,12 @@ export function fetchModuleDetailById(moduleId) {
     navigation: {
       categoryId: categoryData?.id ?? null,
       categoryTitle: categoryData?.name ?? "Category",
-      previousModule: currentIndex > 0 ? categoryModules[currentIndex - 1] : null,
+      previousModule:
+        currentIndex > 0 ? categoryModules[currentIndex - 1] : null,
       nextModule:
-        currentIndex < categoryModules.length - 1 ? categoryModules[currentIndex + 1] : null,
+        currentIndex < categoryModules.length - 1
+          ? categoryModules[currentIndex + 1]
+          : null,
     },
   });
 }

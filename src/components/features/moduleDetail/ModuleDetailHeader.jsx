@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { isDetailNavActive } from "../shared/detailNav";
 
-export default function ModuleDetailHeader({ brand, streakLabel, profileImage }) {
+export default function ModuleDetailHeader({
+  brand,
+  links = [],
+  streakLabel,
+  profileImage,
+}) {
+  const { pathname } = useLocation();
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-[#060e20]/80 backdrop-blur-xl shadow-[0_40px_0_0_rgba(222,229,255,0.08)]">
       <div className="flex justify-between items-center px-6 py-4 max-w-[1440px] mx-auto w-full">
@@ -13,27 +21,21 @@ export default function ModuleDetailHeader({ brand, streakLabel, profileImage })
             {brand}
           </Link>
           <div className="hidden md:flex gap-6 items-center">
-            <Link
-              className="text-sm px-3 py-1 rounded-lg transition-colors duration-300"
-              style={{ color: "#9baad6" }}
-              to="/dashboard"
-            >
-              Dashboard
-            </Link>
-            <Link
-              className="font-bold px-3 py-1 rounded-lg text-sm"
-              style={{ color: "#919bff" }}
-              to="/categories"
-            >
-              Categories
-            </Link>
-            <Link
-              className="text-sm px-3 py-1 rounded-lg transition-colors duration-300"
-              style={{ color: "#9baad6" }}
-              to="/leaderboard"
-            >
-              Leaderboard
-            </Link>
+            {links.map((item) => (
+              <NavLink
+                key={item.label}
+                className={() =>
+                  `rounded-lg px-3 py-1 text-sm transition-all duration-300 ${
+                    isDetailNavActive(pathname, item.to)
+                      ? "font-bold text-[#919bff] bg-[#142449]/60"
+                      : "text-[#9baad6] hover:bg-[#142449]/50 hover:text-[#dee5ff]"
+                  }`
+                }
+                to={item.to}
+              >
+                {item.label}
+              </NavLink>
+            ))}
           </div>
         </div>
         <div className="flex items-center gap-4">
@@ -54,15 +56,16 @@ export default function ModuleDetailHeader({ brand, streakLabel, profileImage })
               {streakLabel}
             </span>
           </div>
-          <div
-            className="w-8 h-8 rounded-full overflow-hidden border"
+          <Link
+            className="block h-8 w-8 overflow-hidden rounded-full border transition-transform hover:scale-105 hover:shadow-[0_0_18px_rgba(145,155,255,0.25)]"
             style={{
               backgroundColor: "#818cf8",
               borderColor: "rgba(145, 155, 255, 0.3)",
             }}
+            to="/profile"
           >
             <img alt="User Profile" className="w-full h-full object-cover" src={profileImage} />
-          </div>
+          </Link>
         </div>
       </div>
     </nav>

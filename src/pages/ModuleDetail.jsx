@@ -2,21 +2,15 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ModuleDetailAside from "../components/features/moduleDetail/ModuleDetailAside";
 import ModuleDetailContent from "../components/features/moduleDetail/ModuleDetailContent";
-import ModuleDetailFooter from "../components/features/moduleDetail/ModuleDetailFooter";
-import ModuleDetailHeader from "../components/features/moduleDetail/ModuleDetailHeader";
 import ModuleDetailHero from "../components/features/moduleDetail/ModuleDetailHero";
 import ModuleDetailQuiz from "../components/features/moduleDetail/ModuleDetailQuiz";
-import ModuleDetailSidebar from "../components/features/moduleDetail/ModuleDetailSidebar";
-import MobileSectionNav from "../components/features/landing/MobileSectionNav";
-import { landingPageData } from "../components/features/landing/landingData";
+import LearningDetailLayout from "../components/features/shared/LearningDetailLayout";
+import { learningDetailChrome } from "../components/features/shared/learningDetailChrome";
 import {
   completeModuleAndUpdateStreak,
   getStoredStreakCount,
 } from "../components/features/moduleDetail/streakStorage";
-import {
-  fetchModuleDetailById,
-  moduleDetailChrome,
-} from "../components/features/moduleDetail/tempData";
+import { fetchModuleDetailById } from "../components/features/moduleDetail/tempData";
 
 export default function ModuleDetail() {
   const { moduleId } = useParams();
@@ -24,7 +18,7 @@ export default function ModuleDetail() {
   const [activeLessonId, setActiveLessonId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [streakCount, setStreakCount] = useState(() =>
-    getStoredStreakCount(moduleDetailChrome.defaultStreakCount),
+    getStoredStreakCount(learningDetailChrome.defaultStreakCount),
   );
 
   useEffect(() => {
@@ -51,7 +45,7 @@ export default function ModuleDetail() {
   function handleModuleCompleted() {
     const result = completeModuleAndUpdateStreak(
       moduleId,
-      moduleDetailChrome.defaultStreakCount,
+      learningDetailChrome.defaultStreakCount,
     );
 
     setStreakCount(result.streakCount);
@@ -63,20 +57,7 @@ export default function ModuleDetail() {
     null;
 
   return (
-    <div
-      className="min-h-screen bg-surface text-on-surface"
-      style={{ backgroundColor: "#060e20", color: "#dee5ff" }}
-    >
-      <ModuleDetailHeader
-        brand={moduleDetailChrome.brand}
-        profileImage={moduleDetailChrome.profileImage}
-        streakLabel={`${streakCount} DAY STREAK`}
-      />
-
-      <div className="flex pt-20">
-        <ModuleDetailSidebar sidebar={moduleDetailChrome.sidebar} />
-
-        <main className="flex-1 lg:ml-64 p-6 pb-32 md:p-12 md:pb-12 w-full">
+    <LearningDetailLayout streakLabel={`${streakCount} DAY STREAK`}>
           {isLoading ? (
             <section className="min-h-[60vh] flex items-center justify-center">
               <p className="text-lg" style={{ color: "#9baad6" }}>
@@ -131,14 +112,6 @@ export default function ModuleDetail() {
               />
             </>
           ) : null}
-        </main>
-      </div>
-
-      <ModuleDetailFooter
-        brand={moduleDetailChrome.brand}
-        footer={moduleDetailChrome.footer}
-      />
-      <MobileSectionNav items={landingPageData.mobileNav} />
-    </div>
+    </LearningDetailLayout>
   );
 }

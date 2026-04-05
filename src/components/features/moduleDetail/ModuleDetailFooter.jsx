@@ -18,14 +18,14 @@ export default function ModuleDetailFooter({ brand, footer }) {
         </div>
         <div className="flex gap-8 flex-wrap justify-center">
           {footer.links.map((link) => (
-            <a
+            <Link
               key={link.label}
               className="text-xs uppercase tracking-widest opacity-80 hover:opacity-100 transition-all duration-300"
-              href={link.to}
+              to={link.to}
               style={{ color: "#9baad6" }}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

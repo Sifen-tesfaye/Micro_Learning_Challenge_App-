@@ -9,6 +9,7 @@ import Signup from "../pages/Signup";
 import ResetPassword from "../pages/ResetPassword";
 import ModuleDetail from "../pages/ModuleDetail";
 import CategoryDetail from "../pages/CategoryDetail";
+import Profile from "../pages/Profile";
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function AppRoutes() {
       <Route path="leaderboard" element={<Leaderboard />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="profile" element={<Profile />} />
       <Route path="reset-password" element={<ResetPassword />} />
       <Route path="*" element={<NotFound />} />
       <Route path="modules/:moduleId" element={<ModuleDetail />} />
