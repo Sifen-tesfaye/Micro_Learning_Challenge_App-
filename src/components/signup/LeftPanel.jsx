@@ -4,15 +4,17 @@ export default function LeftPanel() {
   return (
     <div className="auth-panel hidden min-h-full flex-1 flex-col overflow-hidden lg:flex">
       <div className="flex-1 bg-[radial-gradient(circle_at_top_left,rgba(129,140,248,0.26),transparent_48%),linear-gradient(180deg,rgba(8,19,41,0.98),rgba(12,25,52,0.95))] p-10">
-        <span className="inline-flex rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
-          System Access
+        {/* System Access badge reverted to purple */}
+        <span className="inline-flex rounded-full border border-purple-600 bg-purple-600/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-purple-600">
+          SYSTEM ACCESS
         </span>
 
         <div className="mt-8 max-w-md space-y-5">
           <h2 className="text-4xl font-black leading-tight text-on-surface">
             Elevate your
-            <span className="block bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">
-              cognitive reach.
+            {/* Cognitive Reach reverted to teal gradient */}
+            <span className="block bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent">
+              Cognitive Reach.
             </span>
           </h2>
           <p className="text-base leading-7 text-on-surface-variant">
@@ -23,17 +25,19 @@ export default function LeftPanel() {
       </div>
 
       <div className="space-y-6 border-t border-outline-variant/20 bg-surface-container px-10 py-8">
+        {/* Adaptive Challenges icon reverted to teal */}
         <FeatureItem
           description="Pathways that evolve with your mastery and keep each session sharp."
           icon={Brain}
           title="Adaptive Challenges"
-          tone="text-secondary"
+          tone="text-teal-400"
         />
+        {/* Prestige Rankings icon reverted to purple */}
         <FeatureItem
           description="Climb prestige rankings and earn recognition for disciplined progress."
           icon={Medal}
           title="Prestige Rankings"
-          tone="text-tertiary"
+          tone="text-purple-600"
         />
       </div>
     </div>

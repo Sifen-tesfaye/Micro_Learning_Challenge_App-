@@ -77,7 +77,7 @@ export default function RightPanel() {
             <input
               autoComplete="new-password"
               className="auth-input"
-              placeholder="Create a strong password"
+              placeholder="••••••••"
               required
               type={showPassword ? "text" : "password"}
               value={password}
@@ -116,20 +116,23 @@ export default function RightPanel() {
           </p>
         ) : null}
 
-        <button
-          className="mt-2 rounded-2xl bg-gradient-to-r from-primary to-secondary px-5 py-3 text-sm font-semibold text-on-primary transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
-          disabled={isSubmitting}
-          type="submit"
-        >
-          {isSubmitting ? "Creating Account..." : "Create Account"}
-        </button>
+       <button
+  className="mt-2 rounded-2xl bg-brand-indigo text-white px-5 py-3 text-sm font-semibold transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-70"
+  disabled={isSubmitting}
+  type="submit"
+>
+  {isSubmitting ? "Creating Account..." : "Create Account"}
+</button>
       </form>
 
-      <p className="mt-6 text-center text-sm text-on-surface-variant">
+        <p className="mt-3 text-sm text-on-surface-variant text-center">
         Already have an account?{" "}
-        <Link className="font-semibold text-secondary hover:underline" to="/login">
+        <a
+          href="/login"
+          className="bg-gradient-to-r from-sky-400 to-teal-400 bg-clip-text text-transparent hover:underline"
+        >
           Login
-        </Link>
+        </a>
       </p>
     </div>
   );

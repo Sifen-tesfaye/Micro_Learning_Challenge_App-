@@ -17,7 +17,7 @@ export default function ResetPassword() {
 
       <div className="px-6 text-center text-xs font-semibold uppercase tracking-[0.24em] text-on-surface-variant">
         Having trouble?{" "}
-        <a className="text-secondary hover:underline" href="mailto:support@luminescentscholar.com">
+        <a className="text-green-200 hover:underline" href="mailto:support@luminescentscholar.com">
           Contact Scholar Support
         </a>
       </div>

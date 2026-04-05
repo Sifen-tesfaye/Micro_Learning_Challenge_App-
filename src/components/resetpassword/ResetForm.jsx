@@ -59,7 +59,7 @@ export default function ResetForm() {
       ) : null}
 
       <button
-        className="w-full rounded-2xl bg-gradient-to-r from-primary to-secondary px-5 py-3 text-sm font-semibold text-on-primary transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+        className="w-full rounded-2xl bg-indigo-300 text-white px-5 py-3 text-sm font-semibold transition hover:bg-indigo-400 disabled:cursor-not-allowed disabled:opacity-70"
         disabled={isSubmitting}
         type="submit"
       >

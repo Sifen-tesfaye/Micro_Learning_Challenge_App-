@@ -1,10 +1,18 @@
-import { Code2, Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/login/Footer";
 import InputField from "../components/login/InputField";
 import SocialButton from "../components/login/SocialButton";
 import { useAuth } from "../context/AuthContext";
+
+// react-icons imports
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { MdEmail } from "react-icons/md";
+import { FaLock } from "react-icons/fa";
+
+// lucide-react for Eye toggle
+import { Eye, EyeOff } from "lucide-react";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -23,11 +31,7 @@ export default function Login() {
 
     try {
       await signIn(email, password);
-
-      if (!rememberSession) {
-        localStorage.removeItem("refresh");
-      }
-
+      if (!rememberSession) localStorage.removeItem("refresh");
       navigate("/dashboard");
     } catch (error) {
       setFeedback(error.message || "Unable to sign in with those credentials.");
@@ -54,95 +58,75 @@ export default function Login() {
           <form className="space-y-5" onSubmit={handleSubmit}>
             <InputField
               autoComplete="email"
-              icon={<Mail className="h-4 w-4" />}
+              icon={<MdEmail className="w-5 h-5" />}
               label="Email Address"
               placeholder="scholar@academy.edu"
-              type="email"
               value={email}
-              onChange={setEmail}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
-            <div>
-              <label className="auth-label">Password</label>
-              <div className="auth-input-shell">
-                <span className="auth-input-icon">
-                  <Lock className="h-4 w-4" />
-                </span>
-                <input
-                  autoComplete="current-password"
-                  className="auth-input"
-                  placeholder="Enter your password"
-                  required
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                />
-                <button
-                  type="button"
-                  className="rounded-full p-1 text-on-surface-variant transition hover:text-on-surface"
-                  onClick={() => setShowPassword((current) => !current)}
-                >
-                  {showPassword ? (
-                    <EyeOff className="h-4 w-4" />
-                  ) : (
-                    <Eye className="h-4 w-4" />
-                  )}
-                </button>
-              </div>
+            {/* Password field with Eye toggle */}
+            <div className="relative">
+              <InputField
+                autoComplete="current-password"
+                icon={<FaLock className="w-5 h-5" />}
+                label="Password"
+                type={showPassword ? "text" : "password"}
+                placeholder="•••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-9 text-on-surface-variant hover:text-on-surface"
+              >
+                {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+              </button>
             </div>
 
-            <div className="flex items-center justify-between gap-4 text-sm">
-              <Link className="text-secondary hover:underline" to="/reset-password">
+            {/* Forgot Password + Remember Session row */}
+            <div className="flex items-center justify-between text-sm">
+              <Link to="/reset-password" className="text-brand-indigo hover:underline">
                 Forgot Password?
               </Link>
-
-              <label className="flex items-center gap-2 text-on-surface-variant">
+              <label className="flex items-center gap-1 cursor-pointer">
                 <input
-                  checked={rememberSession}
-                  className="h-4 w-4 rounded border-outline text-primary"
                   type="checkbox"
-                  onChange={(event) => setRememberSession(event.target.checked)}
+                  checked={rememberSession}
+                  onChange={(e) => setRememberSession(e.target.checked)}
+                  className="h-4 w-4 text-brand-indigo border-on-surface-variant rounded"
                 />
-                Remember this session
+                <span>Remember this session</span>
               </label>
             </div>
 
-            {feedback ? (
-              <p className="rounded-2xl border border-error/30 bg-error/10 px-4 py-3 text-sm text-error">
-                {feedback}
-              </p>
-            ) : null}
-
+            {/* Indigo button */}
             <button
-              className="w-full rounded-2xl bg-gradient-to-r from-primary to-secondary px-5 py-3 text-sm font-semibold text-on-primary transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
-              disabled={isSubmitting}
               type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-brand-indigo text-white py-2 rounded-md transition-colors hover:bg-indigo-700"
             >
               {isSubmitting ? "Signing In..." : "Sign In to Dashboard"}
             </button>
+
+            {feedback && <p className="mt-2 text-sm text-error">{feedback}</p>}
           </form>
 
-          <div className="mt-8">
-            <p className="text-center text-xs font-semibold tracking-[0.24em] text-on-surface-variant">
-              OR CONTINUE WITH
-            </p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              <SocialButton
-                icon={<span className="font-bold text-secondary">G</span>}
-                label="Google"
-              />
-              <SocialButton
-                icon={<Code2 className="h-4 w-4" />}
-                label="GitHub"
-              />
+          {/* Social Login */}
+          <div className="mt-6 text-center">
+            <p className="text-sm mb-2">OR CONTINUE WITH</p>
+            <div className="flex justify-center gap-4">
+              <SocialButton label="Google" icon={<FcGoogle className="w-5 h-5" />} />
+              <SocialButton label="GitHub" icon={<FaGithub className="w-5 h-5" />} />
             </div>
           </div>
         </div>
       </main>
 
-      <div className="px-6 pb-4 text-center text-sm text-on-surface-variant">
-        Don&apos;t have an account?{" "}
-        <Link className="font-semibold text-secondary hover:underline" to="/signup">
+      <div className="text-center text-sm mb-4">
+        Don’t have an account?{" "}
+        <Link to="/signup" className="text-brand-indigo hover:underline">
           Sign up for free
         </Link>
       </div>
