@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import App from "./App";
 import Landing from "../pages/Landing";
 import Dashboard from "../pages/Dashboard";
 import Categories from "../pages/Categories";
@@ -20,7 +19,7 @@ export default function AppRoutes() {
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="modules/:id" element={<ModuleDetail />} />
+      <Route path="modules/:moduleId" element={<ModuleDetail />} />
       <Route path="categories/:id" element={<CategoryDetail />} />
     </Routes>
   );
