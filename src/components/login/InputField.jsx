@@ -19,7 +19,7 @@ export default function InputField({
           required
           type={type}
           value={value}
-          onChange={(event) => onChange(event.target.value)}
+          onChange={onChange}
         />
       </div>
     </div>
