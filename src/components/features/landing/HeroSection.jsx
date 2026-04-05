@@ -1,20 +1,57 @@
+import { Link } from "react-router-dom";
 import avatar1 from "../../../assets/images/avatar1_icon.png";
 import avatar2 from "../../../assets/images/avatar2_icon.png";
 import avatar3 from "../../../assets/images/avatar3_icon.png";
-import streakCover from "../../../assets/images/streak.png";
-import moduleCover from "../../../assets/images/module_main.png";
+import streakPreview from "../../../assets/images/streak.png";
+import modulePreview from "../../../assets/images/module_main.png";
+
+const defaultHeroContent = {
+  badge: "Learn smarter",
+  titleLines: ["Build", "daily learning", "momentum"],
+  description:
+    "Short challenges, visible progress, and friendly competition to help you keep showing up every day.",
+  primaryCta: {
+    label: "Start challenge",
+    to: "/dashboard",
+  },
+  secondaryCta: {
+    label: "Browse categories",
+    to: "/categories",
+  },
+  communityLabel: "12k learners joined this week",
+  avatars: [avatar1, avatar2, avatar3],
+  streakCard: {
+    description: "You're 5 days into your current learning streak.",
+    progressWidth: "72%",
+  },
+  moduleCard: {
+    image: modulePreview,
+    label: "Featured module",
+    moduleName: "Focus Fundamentals",
+  },
+  leaderboard: [
+    { name: "Amina", xp: 1280 },
+    { name: "Noah", xp: 1215 },
+  ],
+  streakImage: streakPreview,
+};
 
 export default function HeroSection({
-  moduleImage = moduleCover,
-  streakImage = streakCover,
-  leaderboard = [
-    { name: "Jibril Abdi", xp: 2450 },
-    { name: "Sarah J.", xp: 2100 },
-  ],
-  moduleName = "Quantum Computing 101",
+  badge = defaultHeroContent.badge,
+  titleLines = defaultHeroContent.titleLines,
+  description = defaultHeroContent.description,
+  primaryCta = defaultHeroContent.primaryCta,
+  secondaryCta = defaultHeroContent.secondaryCta,
+  communityLabel = defaultHeroContent.communityLabel,
+  avatars = defaultHeroContent.avatars,
+  streakCard = defaultHeroContent.streakCard,
+  moduleCard = defaultHeroContent.moduleCard,
+  leaderboard = defaultHeroContent.leaderboard,
+  streakImage = defaultHeroContent.streakImage,
 }) {
   const avatarClass =
     "w-10 h-10 rounded-full border-2 border-surface object-cover";
+  const [communityCount, ...communityRest] = communityLabel.split(" ");
 
   return (
     <section className="relative pt-32 pb-20 px-6 overflow-hidden hero-gradient">
@@ -24,46 +61,58 @@ export default function HeroSection({
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-container/15 border border-tertiary-container/20">
             <span className="w-2 h-2 rounded-full bg-secondary" />
             <span className="text-xs font-bold uppercase tracking-widest text-tertiary">
-              New Season Live
+              {badge}
             </span>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-on-surface leading-[1.1]">
-            Elevate Your Mind, <br />
+            {titleLines?.[0]} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-              One Daily Challenge
+              {titleLines[1]}
             </span>
             <br />
-            at a Time.
+            {titleLines[2]}
           </h1>
 
           <p className="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed">
-            Master new skills through gamified micro-learning. Track your
-            streaks, earn points, and climb the global leaderboard.
+            {description}
           </p>
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4 pt-4">
-            <button className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-2xl shadow-lg shadow-secondary/20 hover:brightness-110 transition-all active:scale-95 cursor-pointer">
-              Get Started
-            </button>
+            <Link
+              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-2xl shadow-lg shadow-secondary/20 hover:brightness-110 transition-all active:scale-95 cursor-pointer"
+              to={primaryCta.to}
+            >
+              {primaryCta.label}
+            </Link>
 
-            <button className="px-8 py-4 glass-card text-on-surface font-bold rounded-2xl hover:bg-surface-bright/0   transition-all active:scale-95 cursor-pointer ">
-              Explore Categories
-            </button>
+            <Link
+              className="px-8 py-4 glass-card text-on-surface font-bold rounded-2xl hover:bg-surface-bright/0 transition-all active:scale-95 cursor-pointer"
+              to={secondaryCta.to}
+            >
+              {secondaryCta.label}
+            </Link>
           </div>
 
           {/* User Avatars */}
           <div className="flex items-center gap-6 pt-8">
             <div className="flex -space-x-3">
-              <img alt="User avatar" className={avatarClass} src={avatar1} />
-              <img alt="User avatar" className={avatarClass} src={avatar2} />
-              <img alt="User avatar" className={avatarClass} src={avatar3} />
+              {avatars.map((avatar, index) => (
+                <img
+                  key={avatar}
+                  alt={`User avatar ${index + 1}`}
+                  className={avatarClass}
+                  src={avatar}
+                />
+              ))}
             </div>
 
             <p className="text-sm text-on-surface-variant">
-              <span className="text-secondary font-bold">12k+</span> Scholars
-              learning today
+              <span className="text-secondary font-bold">
+                {communityCount}
+              </span>{" "}
+              {communityRest.join(" ")}
             </p>
           </div>
         </div>
@@ -84,11 +133,14 @@ export default function HeroSection({
               <h3 className="text-xl font-bold mb-2">Daily Streak</h3>
 
               <p className="text-sm text-on-surface-variant">
-                You've reached a 15-day learning streak. Keep it up!
+                {streakCard.description}
               </p>
 
               <div className="mt-4 h-2 w-full bg-surface-container rounded-full overflow-hidden">
-                <div className="h-full bg-secondary w-3/4" />
+                <div
+                  className="h-full bg-secondary"
+                  style={{ width: streakCard.progressWidth }}
+                />
               </div>
             </div>
 
@@ -108,13 +160,13 @@ export default function HeroSection({
               <img
                 alt="Learning technology"
                 className="w-full h-full object-cover"
-                src={moduleImage}
+                src={moduleCard.image}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-surface-container-high via-transparent to-transparent p-6 flex flex-col justify-end">
                 <span className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
-                  Current Task
+                  {moduleCard.label}
                 </span>
-                <h4 className="text-lg font-bold">{moduleName}</h4>
+                <h4 className="text-lg font-bold">{moduleCard.moduleName}</h4>
               </div>
             </div>
 
