@@ -16,7 +16,11 @@ export const learningDetailChrome = {
       { label: "Dashboard", icon: "dashboard", to: "/dashboard" },
       { label: "Categories", icon: "grid_view", to: "/categories" },
       { label: "Leaderboard", icon: "leaderboard", to: "/leaderboard" },
+<<<<<<< HEAD
       { label: "Challenges", icon: "emoji_events", to: "/h" },
+=======
+      { label: "Challenges", icon: "emoji_events", to: "/dashboard" },
+>>>>>>> 96a3493b5c110ab4042afb07630cc2bb86c10d5c
     ],
     ctaLabel: "New Challenge",
     ctaTo: "/signup",
