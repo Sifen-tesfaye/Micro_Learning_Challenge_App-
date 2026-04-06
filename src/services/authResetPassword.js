@@ -10,7 +10,7 @@ export async function requestPasswordReset(email) {
 
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error(data.detail  data.message  "Failed to send reset link.");
+    throw new Error(data.detail || data.message || "Failed to send reset link.");
   }
   return data;
 }
@@ -24,7 +24,7 @@ export async function confirmPasswordReset(uid, token, newPassword) {
 
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    throw new Error(data.detail  data.message  "Failed to reset password.");
+    throw new Error(data.detail || data.message || "Failed to reset password.");
   }
   return data;
 }
