@@ -1,15 +1,15 @@
-import React from 'react';
-import { 
-  FiHome, 
-  FiBook, 
-  FiUsers, 
-  FiBarChart2, 
-  FiAward, 
-  FiBell, 
-  FiUser, 
-  FiPlus 
-} from 'react-icons/fi';
-import { FaChartLine, FaUsers, FaTrophy } from 'react-icons/fa';
+import React from "react";
+import {
+  Bell,
+  BookOpen,
+  ChartColumn,
+  ChartLine,
+  House,
+  Plus,
+  Trophy,
+  User,
+  Users,
+} from "lucide-react";
 
 const AdminPanel = () => {
   const modules = [
@@ -64,7 +64,7 @@ const AdminPanel = () => {
           </div>
 
           <button className="text-gray-400 hover:text-white">
-            <FiBell size={24} />
+            <Bell size={24} />
           </button>
           <div className="w-9 h-9 bg-gradient-to-br from-purple-500 to-cyan-400 rounded-full overflow-hidden border-2 border-[#1E2A4A]">
             <img src="https://picsum.photos/id/1015/128/128" alt="Admin" className="w-full h-full object-cover" />
@@ -84,13 +84,13 @@ const AdminPanel = () => {
 
           <nav className="flex-1 space-y-1">
             {[
-              { icon: <FiHome size={20} />, label: "Dashboard", active: true },
-              { icon: <FiBook size={20} />, label: "Categories" },
-              { icon: <FiUsers size={20} />, label: "Users" },
-              { icon: <FiBarChart2 size={20} />, label: "Leaderboard" },
-              { icon: <FiAward size={20} />, label: "Challenges" },
-              { icon: <FiBell size={20} />, label: "Notifications" },
-              { icon: <FiUser size={20} />, label: "Profile" },
+              { icon: <House size={20} />, label: "Dashboard", active: true },
+              { icon: <BookOpen size={20} />, label: "Categories" },
+              { icon: <Users size={20} />, label: "Users" },
+              { icon: <ChartColumn size={20} />, label: "Leaderboard" },
+              { icon: <Trophy size={20} />, label: "Challenges" },
+              { icon: <Bell size={20} />, label: "Notifications" },
+              { icon: <User size={20} />, label: "Profile" },
             ].map((item) => (
               <a
                 key={item.label}
@@ -108,7 +108,7 @@ const AdminPanel = () => {
           </nav>
 
           <button className="mt-10 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:brightness-110 w-full py-4 rounded-2xl font-medium text-sm">
-            <FiPlus size={20} />
+            <Plus size={20} />
             New Challenge
           </button>
         </div>
@@ -130,7 +130,7 @@ const AdminPanel = () => {
                     <div className="text-5xl font-bold mt-4">14.2k</div>
                     <div className="text-sm text-gray-400">Active Scholars this session</div>
                   </div>
-                  <FaChartLine className="text-4xl text-cyan-400" />
+                  <ChartLine className="text-4xl text-cyan-400" />
                 </div>
               </div>
 
@@ -155,7 +155,7 @@ const AdminPanel = () => {
                     <div className="text-5xl font-bold mt-4">+412</div>
                     <div className="text-sm text-gray-400">Last 24 hours</div>
                   </div>
-                  <FaUsers className="text-4xl text-emerald-400" />
+                  <Users className="text-4xl text-emerald-400" />
                 </div>
               </div>
             </div>

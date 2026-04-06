@@ -38,7 +38,7 @@ export default function RightPanel() {
   }
 
   return (
-    <div className="flex min-h-full flex-1 flex-col bg-surface-container-low/85 p-8 sm:p-10">
+   <div className="flex min-h-full flex-1 flex-col bg-indingo p-8 sm:p-10">
       <div className="mb-8">
         <h2 className="text-3xl font-black tracking-tight text-on-surface">
           Create Account
