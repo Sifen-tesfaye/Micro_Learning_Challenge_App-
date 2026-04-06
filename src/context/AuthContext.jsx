@@ -5,7 +5,10 @@ import {
   logout,
   signup,
 } from "../services/authService";
-import { requestPasswordReset } from "../services/authResetPassword";
+import {
+  requestPasswordReset,
+  confirmPasswordReset,
+} from "../services/authResetPassword";
 
 const AuthContext = createContext(null);
 
@@ -67,9 +70,17 @@ export function AuthProvider({ children }) {
     return profile;
   };
 
+  // Step 1: Request reset link
   const resetPassword = async (email) => {
     const result = await requestPasswordReset(email);
     setStatus(result.message || "Reset link sent. Check your inbox.");
+    return result;
+  };
+
+  // Step 2: Confirm reset with uid + token + new password
+  const completeResetPassword = async (uid, token, newPassword) => {
+    const result = await confirmPasswordReset(uid, token, newPassword);
+    setStatus(result.message || "Password reset successful.");
     return result;
   };
 
@@ -83,6 +94,7 @@ export function AuthProvider({ children }) {
       signOut,
       fetchUserProfile,
       resetPassword,
+      completeResetPassword,
       clearStatus: () => setStatus(""),
     }),
     [status, token, user],
