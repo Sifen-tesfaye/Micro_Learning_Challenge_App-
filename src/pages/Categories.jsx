@@ -95,14 +95,17 @@ export default function Categories() {
     setFormSuccess("");
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/propose-category/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: categoryTitle,
-          description: categoryDescription,
-        }),
-      });
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/propose-category/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title: categoryTitle,
+            description: categoryDescription,
+          }),
+        },
+      );
 
       if (!response.ok) {
         throw new Error("Failed to propose category.");
@@ -213,7 +216,7 @@ export default function Categories() {
                 </div>
 
                 <Link
-                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-bold text-[#041225] transition hover:brightness-110"
+                  className="inline-flex items-center gap-2 rounded-xl bg-tertiary px-4 py-2 text-sm font-bold text-[#041225] transition hover:brightness-110"
                   to={`/categories/${category.slug}`}
                 >
                   View Path
