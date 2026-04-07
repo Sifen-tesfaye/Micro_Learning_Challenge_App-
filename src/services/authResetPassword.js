@@ -1,5 +1,5 @@
-const RESET_PASSWORD_ENDPOINT = "/api/auth/password/forgot/";
-const RESET_CONFIRM_ENDPOINT = "/api/auth/password/reset/confirm/";
+const RESET_PASSWORD_ENDPOINT = "https://learning-challenge.onrender.com/api/auth/password/forgot/";
+const RESET_CONFIRM_ENDPOINT = "https://learning-challenge.onrender.com/api/auth/password/reset/confirm/";
 
 export async function requestPasswordReset(email) {
   const response = await fetch(RESET_PASSWORD_ENDPOINT, {

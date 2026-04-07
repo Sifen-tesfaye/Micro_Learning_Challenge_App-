@@ -1,4 +1,4 @@
-const API_URL = "/api/auth";
+const API_URL = "https://learning-challenge.onrender.com/api/auth";
 
 async function request(path, payload, options = {}) {
   const response = await fetch(`${API_URL}${path}`, {
